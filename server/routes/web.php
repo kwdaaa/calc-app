@@ -23,4 +23,4 @@ Route::get('/', function () {
 // {num1}と{num2}には数字が入る。
 // {calc}には addition / subtraction / multiplication / divisionのいずれかが入る。
 // 例：http://localhost/calcs/1/addition/2
-Route::get('calcs/{num1}/{what}/{num2}', 'MessageController@calc');
+Route::get('calcs/{num1}/{operator}/{num2}', 'MessageController@calc');
