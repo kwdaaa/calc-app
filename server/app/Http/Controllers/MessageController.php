@@ -18,30 +18,33 @@ class MessageController extends Controller
 
         // swich文で、operatorに入る値によって処理を切り替える。
         switch ($operator) {
-                // additionの場合
+                // additionの場合 $ansToShow 変数の中に計算結果をいれる。
             case 'addition':
-                return view('calcs.show', ['ansToShow' => $num1Int + $num2Int]);
+                $ansToShow = $num1Int + $num2Int;
                 break;
 
-                // subtractionの場合
+                // subtractionの場合 $ansToShow 変数の中に計算結果をいれる。
             case 'subtraction':
-                return view('calcs.show', ['ansToShow' => $num1Int - $num2Int]);
+                $ansToShow = $num1Int - $num2Int;
                 break;
 
-                // multiplicationの場合
+                // multiplicationの場合 $ansToShow 変数の中に計算結果をいれる。
             case 'multiplication':
-                return view('calcs.show', ['ansToShow' => $num1Int * $num2Int]);
+                $ansToShow = $num1Int * $num2Int;
                 break;
 
-                // divisionの場合
+                // divisionの場合 $ansToShow 変数の中に計算結果をいれる。
             case 'division':
-                return view('calcs.show', ['ansToShow' => $num1Int / $num2Int]);
+                $ansToShow = $num1Int / $num2Int;
                 break;
 
                 // その他の値が入った場合
             default:
-                return view('calcs.show', ['ansToShow' => '演算子が正しくありません']);
+                $ansToShow =  '演算子が正しくありません';
                 break;
         }
+
+        // 計算結果が入った $ansToShow を ansToShowキーに入れて「show.blade.php」でキーを使って計算結果を呼び起こす。
+        return view('calcs.show', ['ansToShow' => $ansToShow]);
     }
 }
